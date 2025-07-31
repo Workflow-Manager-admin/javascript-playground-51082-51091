@@ -1,0 +1,197 @@
+/* CSS Variables for Playground Theme */
+:root {
+  /* Light theme colors (as per spec) */
+  --primary: #1e88e5;
+  --secondary: #424242;
+  --accent: #ffb300;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #232323;
+  --text-secondary: #6e6e6e;
+  --border-color: #e9ecef;
+  --button-bg: var(--primary);
+  --button-text: #ffffff;
+}
+
+[data-theme="dark"] {
+  --primary: #1e88e5;
+  --secondary: #424242;
+  --accent: #ffb300;
+  --bg-primary: #18181b;
+  --bg-secondary: #23242a;
+  --text-primary: #ececec;
+  --text-secondary: #bababa;
+  --border-color: #424242;
+  --button-bg: #212121;
+  --button-text: #fff;
+}
+
+/* --- Playground Global --- */
+.playground-root {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Top bar styles */
+.top-header {
+  user-select: none;
+}
+
+.theme-toggle {
+  position: static;
+  margin: 0 0 0 18px;
+  background-color: var(--accent);
+  color: #2d2d2d;
+  border: none;
+  border-radius: 7px;
+  padding: 8px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 179, 0, 0.05);
+  outline: none;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background-color: #e2a800;
+  opacity: 0.97;
+}
+
+/* Sidebar */
+.sidebar {
+  box-shadow: 0 0 14px rgba(44,44,44,0.04);
+}
+
+.snippets-list button {
+  background: #fff;
+  color: #333;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 5px 11px;
+  font-size: 14px;
+  margin-bottom: 3px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.snippets-list button:hover, .snippets-list button:focus {
+  background: var(--accent);
+  color: #1e1e1e;
+}
+
+/* Editor area styles */
+.editor {
+  white-space: pre-wrap;
+  word-break: break-word;
+  min-height: 150px;
+  max-height: 340px;
+  background: #f9f9fa;
+  border-radius: 9px;
+  border: 2px solid #e3e8f0;
+  color: #222;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  transition: border 0.2s;
+  outline: none;
+}
+.editor:focus {
+  border: 2.5px solid var(--primary);
+  box-shadow: 0 0 5px 0 #e3e8f0;
+}
+
+/* Syntax highlighter (very basic JS style) */
+.hl-keyword {
+  color: #1e88e5;
+  font-weight: bold;
+}
+.hl-string {
+  color: #43a047;
+}
+.hl-number {
+  color: #d32f2f;
+}
+
+/* Output */
+.output-panel {
+  background: #212121;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 14px rgba(30,136,229,0.02);
+  min-height: 84px;
+}
+
+/* Utility Buttons */
+.btn-utility {
+  background: transparent;
+  border: none;
+  color: #222;
+  font-size: 20px;
+  margin-left: 7px;
+  margin-right: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 3px 8px;
+  transition: background 0.18s;
+}
+.btn-utility:hover,
+.btn-utility:focus {
+  background: #ffe0a1;
+  color: #ae6701;
+}
+
+@media (max-width: 1070px) {
+  .layout-main {
+    flex-direction: column;
+  }
+  .sidebar {
+    flex-direction: row;
+    width: 100vw !important;
+    min-width: unset !important;
+    height: 70px;
+    min-height: unset;
+    box-shadow: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 0.9rem;
+    height: auto;
+    min-height: 48px;
+  }
+  .sidebar {
+    min-width: 90vw !important;
+    max-width: 99vw;
+    padding: 17px 6px 6px;
+  }
+  .editor {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .output-panel {
+    font-size: 13px;
+    padding: 10px 11px;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  background: #eee;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e3e8f0;
+  border-radius: 5px;
+}
+
